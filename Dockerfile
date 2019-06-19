@@ -8,3 +8,5 @@ COPY Gemfile /fu-app/Gemfile
 #COPY Gemfile.lock /fu-app/Gemfile.lock
 RUN bundle install
 COPY . /fu-app
+
+EXPOSE 3000
