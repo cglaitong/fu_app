@@ -6,7 +6,7 @@ WORKDIR /fu-app
 
 COPY Gemfile /fu-app/Gemfile
 #COPY Gemfile.lock /fu-app/Gemfile.lock
-RUN bundle install
+RUN bundle install --path vendor/cache
 COPY . /fu-app
 
 EXPOSE 3000
