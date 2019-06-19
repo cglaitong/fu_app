@@ -1,0 +1,31 @@
+version: '2.1'
+services:
+  fu-db:
+    container_name: fu-db
+    image: mysql:5.7
+    healthcheck:
+      test: "mysqlcheck -u$$MYSQL_USER -p$$MYSQL_PASSWORD $$MYSQL_DATABASE"
+      interval: 20s
+      timeout: 5s
+      retries: 15
+    environment:
+        MYSQL_ROOT_PASSWORD: 123
+        MYSQL_DATABASE: fu-db
+        MYSQL_USER: cristian
+        MYSQL_PASSWORD: 123
+    ports:
+      - "3306:3306"
+  #microservicio de subida de archivos
+  fu-ms:
+    container_name: fu-ms
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    volumes:
+        - SharedFolderContainers:/SharedStorage
+    depends_on:
+      - fu-db
+volumes:
+    SharedFolderContainers:
+        external: true
