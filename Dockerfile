@@ -7,7 +7,7 @@ WORKDIR /fu-app
 COPY Gemfile /fu-app/Gemfile
 #COPY Gemfile.lock /fu-app/Gemfile.lock
 RUN bundle install  
-RUN bundle update websocket-extensions
+RUN bundle update 
 COPY . /fu-app
 
 EXPOSE 3000
