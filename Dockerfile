@@ -5,9 +5,9 @@ RUN mkdir /fu-app
 WORKDIR /fu-app
 
 COPY Gemfile /fu-app/Gemfile
-#COPY Gemfile.lock /fu-app/Gemfile.lock
+COPY Gemfile.lock /fu-app/Gemfile.lock
 RUN bundle install  
-RUN bundle update 
+#RUN bundle update 
 COPY . /fu-app
 
 EXPOSE 3000
