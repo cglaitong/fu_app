@@ -90,7 +90,7 @@ query = {
 }
       #x = Net::HTTP.post_form URI('http://192.168.99.101:2870/upload?'), params
       #puts x.body
-	@result = HTTParty.post("http://192.168.99.101:2870/upload",
+	@result = HTTParty.post("http://file-controller-ms:2870/upload",
 		:query => pruebaH,
 	    	:headers => { 'Content-Type' => 'application/json' } )
       render json: pruebaH.to_json
