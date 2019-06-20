@@ -6,7 +6,8 @@ WORKDIR /fu-app
 
 COPY Gemfile /fu-app/Gemfile
 COPY Gemfile.lock /fu-app/Gemfile.lock
-RUN gem install bundler && bundle install
+RUN gem update --system
+RUN gem install bundler 
 #RUN bundle update 
 COPY . /fu-app
 
