@@ -20,8 +20,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: 123
-  host: fu-db
   socket: /tmp/mysql.sock
+  hostname: 35.245.125.255
+  port: 3306
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   
